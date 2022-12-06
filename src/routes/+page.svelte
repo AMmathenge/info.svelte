@@ -10,7 +10,7 @@
 <body>
     <div>
        <h2>info</h2>
-        {#each data.users as user}
+        
             <div class="user">
                 <table>
                     <tr>
@@ -18,29 +18,37 @@
                         <th>user name</th>
                         <th>username</th>
                         <th>email</th>
+                        <th>action</th>
                     </tr>
-                    <tr>
-                        <td>
-                            {user.id}
-                        </td>
-                        <td>
-                            {user.name}
-                        </td>
-                        <td>
-                            {user.username}
-                        </td>
-                        <td>
-                            {user.email}
-                        </td>
-                    </tr>
+                    <tbody>
+                        {#each data.users as user}
+                        <tr>
+                            <td>
+                                {user.id}
+                            </td>
+                            <td>
+                                {user.name}
+                            </td>
+                            <td>
+                                {user.username}
+                            </td>
+                            <td>
+                                {user.email}
+                            </td>
+                            <a href={`/person/${user.id}`}>read more</a> 
+                        </tr>
+
+                        {/each}
+                    </tbody>
+                    
                 </table>
             
-                <a href={`${user.id}`}>read more</a>  
+                 
                     
             
 
             </div>
-        {/each}
+        
 
     </div>
 </body>
@@ -54,7 +62,7 @@
     td, th{
         border: 1px solid #dddddd;
         text-align: left;
-        padding: 8px;
+        padding: 0px;
     }
     tr:nth-child(even) {
         background-color: #dddddd;
